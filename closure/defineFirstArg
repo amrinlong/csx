@@ -1,0 +1,11 @@
+const defineFirstArg = (cb, arg) => { // subtract, 20
+  const addMoreArgs = (...addArg) => {
+    return cb(arg, ...addArg) // <=== additional arguments
+  }
+
+  return addMoreArgs
+}
+
+const subtract = function(big, small) { return big - small; };
+const subFrom20 = defineFirstArg(subtract, 20);
+console.log(subFrom20(5)); // should log: 15
