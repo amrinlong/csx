@@ -1,21 +1,25 @@
 const shuffleCards = (topHalf, bottomHalf) => {
     let results = []
-    let longestArr = []
-    let shortestArr = []
+    let finalResults = results.filter((x) => {
+        return x !== undefined
+    })
+    let obj = {}
+    let count = 0
 
-    if (topHalf.length > bottomHalf.length) {
-        longestArr = topHalf
-        shortestArr = bottomHalf
-    } else {
-        longestArr = bottomHalf
-        shortestArr = topHalf
+    for (let k in topHalf) {
+        obj[k] = [topHalf[k]].concat([bottomHalf[k]])
+        count++
     }
 
-    for (let i = 0; i < longestArr.length; i++) { // QofD
-        for (let j = 0; j < shortestArr.length; j++) { // JofH
-            
-        }
+    for (let i = 0; i < count; i++) {
+            results.push(obj[i])
     }
+
+    // for (let j = 0; j < results.length; j++) {
+    //     console.log(results.length)
+    // }
+    
+    return results
 }
 
 const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight of Clubs'];
